@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Little Lentil Looper",
+    "author": "Jenga Jingo",
+    "image": "http://www.medicalnewstoday.com/content/images/articles/297/297638/groups-of-lentils.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi assumenda, aperiam alias illo ab ipsum accusantium debitis laudantium, aspernatur obcaecati tenetur, praesentium ducimus optio asperiores non incidunt ipsa quam.",
+    "date": "03/18/2016",
+    "votes": 8,
+    "comments": [
+      {
+        "author": "Idiot",
+        "text": "Sweet Beans, bro"
+      }
+    ],
+    "commentsVisible": false,
+    "newCommentVisible": false
+  }
+]
