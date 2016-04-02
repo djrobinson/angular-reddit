@@ -37,8 +37,9 @@
 <h1>{{showComment}}</h1>
 <div ng-repeat="post in vm.posts track by $index">
   <div class="panel panel-default">
-    <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)"></button> Votes: {{post.votes}}</span></div>
+    <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)">Upvote</button> Votes: {{post.votes}}</span></div>
     <div class="panel-body">
+    <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.downVote(post._id)">Downvote</button> Votes: {{post.votes}}</span></div>
       <div class="col-md-3">
         <img ng-src="{{post.image}}" alt="place">
       </div>
