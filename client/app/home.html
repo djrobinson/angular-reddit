@@ -35,7 +35,7 @@
     </fieldset>
   </form>
 </div>
-<div ng-repeat="post in vm.posts | filter:query | orderBy : '-votes'">
+<div ng-repeat="post in vm.posts | filter:query | orderBy : sortVal : orderDir">
   <div class="panel panel-default">
     <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)">Upvote</button> <button ng-click="vm.downVote(post._id)">Downvote</button> Votes: <span ng-class="{'color-red': post.votes < 0, 'color-green': post.votes > 0}">{{post.votes}}</span></span></div>
 

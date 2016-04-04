@@ -13,6 +13,7 @@
         <a href="/#/" class="navbar-brand">Reddit Clone</a>
         <ul class="nav navbar-nav navbar-left">
           <li><button ng-click="togglePost()">Add Post</button></li>
+          <li><button ng-click="orderRev()">Order Reverse</button>
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -68,6 +69,11 @@ function MainCtrl($scope){
       $scope.showComment[id] = true;
     }
   };
+  $scope.orderDir = true;
+  $scope.orderRev = function() {
+    $scope.sortVal = 'votes';
+    $scope.orderDir = !$scope.orderDir;
+  }
 }
 </script>
 </body>
