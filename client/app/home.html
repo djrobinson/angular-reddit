@@ -1,7 +1,7 @@
 <br>
 <br>
-<h1>{{showComment}}</h1>
-<div ng-show="showComment">
+<br>
+<div ng-show="showAdd">
 
   <form class="form-horizontal" ng-submit="vm.createPost()">
     <fieldset>
@@ -23,6 +23,7 @@
         <div class="col-lg-10">
           <textarea class="form-control" rows="3" id="description" ng-model="vm.newPost.description"></textarea>
         </div>
+
       </div>
 
       <div class="form-group">
@@ -34,7 +35,6 @@
     </fieldset>
   </form>
 </div>
-<h1>{{showComment}}</h1>
 <div ng-repeat="post in vm.posts track by $index">
   <div class="panel panel-default">
     <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)">Upvote</button> Votes: {{post.votes}}</span></div>
@@ -47,11 +47,12 @@
         <p>{{post.description}}</p>
         <p>{{post.date}}</p>
       </div>
-      <div ng-repeat="comment in post.comments">
+      <div ng-repeat="comment in post.comments" >
         <p>{{comment.text}}</p>
       </div>
       <div>
-        <form ng-submit="vm.addComment(post._id)">
+       <button ng-click="toggleComment()"> Add Comment</button>
+        <form ng-submit="vm.addComment(post._id)" ng-show="showComment">
           <input type="text" class="form-control" placeholder="Commenter" ng-model="vm.newComment[post._id].commenter">
           <input type="text" class="form-control" placeholder="Text" ng-model="vm.newComment[post._id].text">
           <input type="submit" class="form-control">

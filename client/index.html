@@ -12,7 +12,7 @@
       <div class="navbar-header">
         <a href="/#/" class="navbar-brand">Reddit Clone</a>
         <ul class="nav navbar-nav navbar-left">
-          <li><button ng-click="toggleComment()">Add Comment</button></li>
+          <li><button ng-click="togglePost()">Add Post</button></li>
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -43,7 +43,16 @@ angular
 MainCtrl.$inject = ['$scope'];
 
 function MainCtrl($scope){
-  $scope.showComment = true;
+  $scope.showComment = false;
+  $scope.toggleComment = function(){
+    console.log($scope.showComment);
+    if ($scope.showComment === true ){
+      $scope.showComment = false;
+    } else {
+      $scope.showComment = true;
+    }
+  }
+  $scope.showPost = false;
   $scope.toggleComment = function(){
     console.log($scope.showComment);
     if ($scope.showComment === true ){
