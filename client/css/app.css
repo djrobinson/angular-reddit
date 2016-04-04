@@ -1,3 +1,24 @@
 img {
   width: 100%;
 }
+
+.commentBox {
+  -webkit-transition:all linear 1s;
+  transition:all linear 1s;
+}
+
+.commentBox.ng-show {
+  opacity:1;
+}
+
+.commentBox.ng-hide {
+  opacity: 0;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}

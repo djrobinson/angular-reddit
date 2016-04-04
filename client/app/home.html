@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-<div ng-show="showPost">
+<div ng-show="showPost" class="commentBox">
 
   <form class="form-horizontal" ng-submit="vm.createPost()">
     <fieldset>
@@ -35,9 +35,9 @@
     </fieldset>
   </form>
 </div>
-<div ng-repeat="post in vm.posts | filter:query">
+<div ng-repeat="post in vm.posts | filter:query | orderBy : '-votes'">
   <div class="panel panel-default">
-    <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)">Upvote</button> <button ng-click="vm.downVote(post._id)">Downvote</button> Votes: {{post.votes}}</span></div>
+    <div class="panel-heading">{{post.title}} - {{post.author}} <span class="pull-right"><button ng-click="vm.upVote(post._id)">Upvote</button> <button ng-click="vm.downVote(post._id)">Downvote</button> Votes: <span ng-class="{'color-red': post.votes < 0, 'color-green': post.votes > 0}">{{post.votes}}</span></span></div>
 
     <div class="panel-body">
 
@@ -53,7 +53,7 @@
       </div>
       <div>
        <button ng-click="toggleComment(post._id)"> Add Comment</button>
-        <form ng-submit="vm.addComment(post._id)" ng-show="showComment[post._id] === true" ng-init="showComment[post._id] = false">
+        <form ng-submit="vm.addComment(post._id)" ng-show="showComment[post._id] === true" ng-init="showComment[post._id] = false" class="commentBox">
           <input type="text" class="form-control" placeholder="Commenter" ng-model="vm.newComment[post._id].commenter">
           <input type="text" class="form-control" placeholder="Text" ng-model="vm.newComment[post._id].text">
           <input type="submit" class="form-control">
