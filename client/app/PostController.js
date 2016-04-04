@@ -36,6 +36,15 @@ function PostCtrl(postService){
     });
   };
 
+  vm.downVote = function(data){
+    return postService.downVote(data)
+    .then(function(data) {
+      console.log(data);
+      getPosts();
+      return vm.posts;
+    });
+  };
+
   vm.addComment = function(data){
     var inputs = vm.newComment[data];
     return postService.createComment(inputs, data)

@@ -79,6 +79,21 @@ router.post('/upvote/:post_id', function(req, res, next){
   });
 });
 
+router.post('/downvote/:post_id', function(req, res, next){
+  Post.findById(req.params.post_id, function(err, post){
+    if (err) throw err;
+
+    post.votes -= 1;
+
+    post.save(function(err){
+      if (err) throw err;
+
+      console.log('User successfully updated!');
+      res.json('User successfully updated!');
+    });
+  });
+});
+
 router.post('/comment/:post_id', function(req, res, next){
 
   Post.findById(req.params.post_id, function(err, post){

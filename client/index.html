@@ -16,7 +16,7 @@
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" class="form-control" placeholder="Search" ng-model="query">
           </div>
         </form>
       </div>
@@ -43,24 +43,31 @@ angular
 MainCtrl.$inject = ['$scope'];
 
 function MainCtrl($scope){
-  $scope.showComment = false;
-  $scope.toggleComment = function(){
-    console.log($scope.showComment);
-    if ($scope.showComment === true ){
-      $scope.showComment = false;
-    } else {
-      $scope.showComment = true;
-    }
-  }
   $scope.showPost = false;
-  $scope.toggleComment = function(){
-    console.log($scope.showComment);
-    if ($scope.showComment === true ){
-      $scope.showComment = false;
+  $scope.togglePost = function(){
+    console.log($scope.showPost);
+    if ($scope.showPost === true ){
+      $scope.showPost = false;
     } else {
-      $scope.showComment = true;
+      $scope.showPost = true;
     }
-  }
+  };
+  $scope.showComment = {};
+  $scope.toggleComment = function(id){
+    console.log(id);
+    console.log($scope.showComment);
+    if ($scope.showComment[id] === undefined){
+      $scope.showComment[id] = false;
+    } else if ($scope.showComment[id] === false ){
+      $scope.showComment[id] = true;
+      console.log("undefined!!!", $scope.showComment[id]);
+    } else if ($scope.showComment[id] === true){
+      $scope.showComment[id] = false;
+    } else {
+      console.log($scope.showComment[id]);
+      $scope.showComment[id] = true;
+    }
+  };
 }
 </script>
 </body>

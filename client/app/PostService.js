@@ -10,6 +10,7 @@ function postService($http) {
     getPosts: getPosts,
     createPost: createPost,
     upVote: upVote,
+    downVote: downVote,
     createComment: createComment
   };
 
@@ -45,6 +46,21 @@ function postService($http) {
 
   function upVote(data){
     return $http.post('/posts/upvote/'+ data)
+      .then(getCompletedRes)
+      .catch(getFailedRes);
+
+    function getCompletedRes(response) {
+      console.log(response.data);
+      return response.data;
+    }
+
+    function getFailedRes(error) {
+      console.log('XHR Failed for createPost.' + error.data);
+    }
+  }
+
+  function downVote(data){
+    return $http.post('/posts/downvote/'+ data)
       .then(getCompletedRes)
       .catch(getFailedRes);
 
